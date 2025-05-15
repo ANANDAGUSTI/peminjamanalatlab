@@ -1,0 +1,285 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.3s ease;
+}
+
+body {
+    background: #1a1a1a;
+    color: #e0e0e0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+}
+
+.container, .login-container, .dashboard-container, .manage-container, .pinjam-container {
+    max-width: 1500px; /* Diperlebar sedikit untuk akomodasi tabel */
+    margin: 50px auto;
+    padding: 30px;
+    background: rgba(44, 44, 44, 0.9);
+    border-radius: 15px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+    animation: fadeIn 1s ease-in-out;
+}
+
+h1 {
+    font-size: 2.5em;
+    color: #00b7ff;
+    text-shadow: 0 0 10px rgba(0, 183, 255, 0.5);
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 2em;
+    color: #e0e0e0;
+    margin-bottom: 20px;
+}
+
+h3 {
+    font-size: 1.5em;
+    color: #bb86fc;
+    margin-bottom: 15px;
+}
+
+p {
+    font-size: 1.1em;
+    color: #b0b0b0;
+    margin-bottom: 25px;
+}
+
+.buttons, .dashboard-links, .manage-actions {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+table {
+    width: 100%;
+    min-width: 800px; /* Minimum lebar tabel untuk menampung semua kolom */
+    border-collapse: collapse;
+    background: rgba(255, 255, 255, 0.05);
+    animation: slideIn 1s ease-in-out;
+    margin-bottom: 30px;
+}
+
+/* Bagian lain tetap sama */
+.table-wrapper {
+    overflow-x: auto;
+    margin-bottom: 30px; /* Jarak 30px antara tabel dan tombol */
+    max-width: 100%;
+}
+
+.manage-actions {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+thead {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+th, td {
+    padding: 10px; /* Kurangi padding untuk menghemat ruang */
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    white-space: nowrap; /* Hindari text wrapping */
+}
+
+th {
+    color: #00b7ff;
+    font-weight: 600;
+}
+
+td {
+    color: #e0e0e0;
+}
+
+.btn, .btn-login, .btn-submit, .btn-return, .btn-add, .btn-dashboard, .btn-logout, .btn-back, .btn-ok {
+    padding: 10px 20px; /* Kurangi padding untuk tombol agar lebih kompak */
+    margin: 10px;
+    font-size: 1.1em;
+    color: #fff;
+    background: linear-gradient(45deg, #00b7ff, #007bff);
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(0, 183, 255, 0.3);
+    transition: transform 0.3s, box-shadow 0.3s, background 0.5s;
+}
+
+.btn:hover, .btn-login:hover, .btn-submit:hover, .btn-return:hover, .btn-add:hover, .btn-dashboard:hover, .btn-logout:hover, .btn-back:hover, .btn-ok:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(0, 183, 255, 0.5);
+    background: linear-gradient(45deg, #007bff, #00b7ff);
+}
+
+.btn.siswa { background: linear-gradient(45deg, #bb86fc, #9b59b6); }
+.btn.siswa:hover { background: linear-gradient(45deg, #9b59b6, #bb86fc); }
+.btn.admin { background: linear-gradient(45deg, #ff4e50, #ff8a65); }
+.btn.admin:hover { background: linear-gradient(45deg, #ff8a65, #ff4e50); }
+.btn-cancel { background: linear-gradient(45deg, #e74c3c, #c0392b); }
+.btn-cancel:hover { background: linear-gradient(45deg, #c0392b, #e74c3c); }
+
+.login-form, .pinjam-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+input, select {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto 10px;
+    background: #333;
+    color: #e0e0e0;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: #00b7ff;
+    box-shadow: 0 0 5px rgba(0, 183, 255, 0.5);
+}
+
+.alat-group {
+    display: flex;
+    gap: 10px;
+    margin: 10px 0;
+    align-items: center;
+    justify-content: center;
+}
+
+.success-message, .error-message {
+    padding: 15px;
+    margin: 20px auto;
+    border-radius: 10px;
+    max-width: 400px;
+    text-align: center;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.success-message {
+    background: rgba(46, 204, 113, 0.8);
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(46, 204, 113, 0.3);
+}
+
+.error-message {
+    background: rgba(231, 76, 60, 0.8);
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+}
+
+/* Animasi */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateX(-20px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@media (max-width: 600px) {
+    h1 { font-size: 2em; }
+    h2 { font-size: 1.5em; }
+    .btn, .btn-login, .btn-submit, .btn-return, .btn-add, .btn-dashboard, .btn-logout, .btn-back, .btn-ok {
+        padding: 8px 15px;
+        font-size: 1em;
+    }
+    table {
+        width: 100%;
+        font-size: 0.9em;
+    }
+    .table-wrapper {
+        overflow-x: auto;
+    }
+    th, td {
+        padding: 8px; /* Lebih kecil di layar kecil */
+    }
+}
+
+/* Tambahkan styling untuk container pesan */
+.message-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 200px;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.success-message, .error-message {
+    padding: 20px;
+    margin: 20px auto;
+    border-radius: 15px;
+    max-width: 500px;
+    text-align: center;
+    animation: fadeIn 1s ease-in-out;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.success-message {
+    background: rgba(46, 204, 113, 0.2);
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(46, 204, 113, 0.3);
+}
+
+.error-message {
+    background: rgba(231, 76, 60, 0.2);
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+}
+
+.icon-success, .icon-error {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.icon-success i {
+    color: #2ecc71; /* Hijau untuk sukses */
+}
+
+.icon-error i {
+    color: #e74c3c; /* Merah untuk error */
+}
+
+.btn-ok {
+    padding: 10px 25px;
+    font-size: 1.1em;
+    color: #fff;
+    background: linear-gradient(45deg, #00b7ff, #007bff);
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(0, 183, 255, 0.3);
+    transition: transform 0.3s, box-shadow 0.3s, background 0.5s;
+}
+
+.btn-ok:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(0, 183, 255, 0.5);
+    background: linear-gradient(45deg, #007bff, #00b7ff);
+}
